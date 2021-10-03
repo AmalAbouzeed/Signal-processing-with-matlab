@@ -1,0 +1,28 @@
+
+
+fs = 100;
+t = 0:1/fs:1;
+
+
+sig = sin(2*pi*5*t);
+plot(t,sig)
+
+
+noise = 0.1*randn(size(sig));
+
+
+
+
+sigNoisy=sig+noise
+plot(t,sigNoisy)
+
+
+sq=square(2*pi*5*t);
+plot(t,sq)
+
+
+
+free=sq+noise;
+plot(t,free)
+
+
