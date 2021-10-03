@@ -1,0 +1,74 @@
+%% Generating Signals
+Instructions are in the task pane to the left. Complete and submit each task one at a time.
+
+Task 1
+First, you need to choose the sample times where the signal should get generated. You can choose sample times by specifying the:
+Sample rate fs
+Start time
+End time
+
+You can create time steps from a to b with the colon operator:
+a:1/fs:b
+
+TASK
+Specify a sample rate of 100 Hz in a variable named fs.
+
+Then create a signal named t that extends from  0 to 1, with time steps that are 1/fs.
+answer
+fs = 100;
+t = 0:1/fs:1;
+
+Task 2
+A straightforward way to make a sine wave is using the sin function:
+s = sin(2*pi*f*t)
+where f is the frequency, and t are the time steps.
+TASK
+Create a sine signal named sig at the sample times in t. Use a frequency of 5.
+
+Then create a plot of sig versus t.
+answer
+sig = sin(2*pi*5*t);
+plot(t,sig)
+
+Task 3
+It is common to add noise to generated signals. Noise makes the signals more realistic and ensures signal processing techniques are robust to noisy data. 
+
+To add noise, you can create a vector of random numbers that's the same size as your signal:
+randn(size(s))
+TASK
+Create a vector of normally distributed random numbers named noise that is the same size as sig. Multiply the vector by 0.1 to scale the vector.
+answer
+noise = 0.1*randn(size(sig));
+
+
+
+Task 4
+Add the signal vector with the noise vector. Name the output sigNoisy. Then create a plot of sigNoisy versus t.
+answer
+sigNoisy=sig+noise
+plot(t,sigNoisy)
+
+Task 5
+Signal Processing Toolbox contains functions for common waveforms, like the square and sawtooth functions. The inputs are similar to the sin function:
+s = square(2*pi*f*t)
+f is the frequency and t is a vector of time steps.
+TASK
+Create a square signal named sq at the sample times in t. Use a frequency of 5.
+
+Then create a plot of sq versus t.
+answer
+sq=square(2*pi*5*t);
+plot(t,sq)
+
+
+Further Practice
+Try to add noise to the square wave and plot the result.
+
+Remember that you can execute your script by clicking the Run or Run Section button in the MATLAB Toolstrip.
+
+After each activity, there is an ungraded Further Practice. Feel free to use generated signals to practice before moving onto the next topic.
+answer
+free=sq+noise;
+plot(t,free)
+
+
